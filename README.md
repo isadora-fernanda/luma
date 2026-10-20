@@ -1,20 +1,20 @@
+<p align="center"><img src="docs/logo.png" alt="Logo do Luma" width="120"></p>
+
 # Luma, fotos colaborativas para eventos
 
 O Luma é uma plataforma em que os convidados de um evento entram pelo QR code, fotografam pelo próprio site e as fotos vão para uma galeria única, aprovada pelo organizador e disponível por um prazo definido. Foi o projeto final, feito em equipe de cinco pessoas, do curso Python para Inteligência Artificial do Entra21 (Blusoft e ACATE), em 2026, e foi publicado e testado pela turma num evento real, com 9 participantes. Como o produto pode continuar sendo desenvolvido, o código completo é privado. Este repositório reúne a parte que eu desenvolvi, a **câmera e o tratamento de fotos e vídeos no navegador**, e alguns outros módulos independentes do sistema, todos com testes.
 
 > **English:** Luma is a collaborative photo platform for events. Guests join through a QR code, take photos in the browser, and the photos go to a single gallery approved by the organizer. Built by a team of five as the final project of Entra21 (2026) with Next.js, React, TypeScript, MySQL and a Python image-moderation service. The full code is private. This repository shows my part of the project, the in-browser camera and photo/video processing, plus a few other self-contained modules, all with tests.
 
-![Luma](docs/capa.jpg)
-
 ## Telas
 
-![Página inicial, evento no tema escuro, evento no tema claro e escolha do papel de parede](docs/telas.jpg)
+<p align="center">
+  <img src="docs/convidado.gif" alt="Telas do convidado" width="300">
+  &nbsp;&nbsp;
+  <img src="docs/organizador.gif" alt="Telas do organizador" width="300">
+</p>
 
-*Página inicial, evento no tema escuro, evento no tema claro e escolha do papel de parede.*
-
-<p align="center"><img src="docs/organizador.gif" alt="Painel do organizador" width="300"></p>
-
-<p align="center"><i>Painel do organizador, com o QR Code do evento, as configurações, o cálculo do plano e o tema claro.</i></p>
+<p align="center"><i>À esquerda, o caminho do convidado, da página inicial à câmera e à galeria. À direita, o painel do organizador, com o QR Code, as configurações, os temas e o cálculo do plano.</i></p>
 
 ## Arquitetura
 
@@ -51,10 +51,6 @@ depois que os testes e o build passam.
 O organizador escolhe o tema da página (aniversário, casamento, festa, final de ano ou profissional, em versão clara ou escura), define quantas fotos cada pessoa pode enviar, e as fotos podem ser baixadas em ZIP.
 
 ### 2. Câmera no navegador (`src/CameraCapture.tsx` e `src/camera-math.ts`), minha parte
-
-<p align="center"><img src="docs/camera.jpg" alt="Câmera do Luma no navegador" width="300"></p>
-
-<p align="center"><i>Câmera frontal aberta no navegador, com o zoom, a troca de câmera e o botão de foto e vídeo.</i></p>
 
 A câmera abre direto no site, sem instalar aplicativo, com `getUserMedia`.
 - **Foto ou vídeo no mesmo botão.** Um toque tira a foto. Segurando por mais de 0,2 s, começa a gravar com `MediaRecorder`, e a gravação para sozinha em 10 s, com um anel de progresso no botão.
